@@ -1,35 +1,37 @@
-
-  <table class="table">
-    <thead>
-      <td>ID</td>
-      <td>Username</td>
-      <td>Password</td>
-      <td>Firstname</td>
-      <td>Lastname</td>
-      <td>Email</td>
-      <td>Phone</td>
-      <td>IsReviewer</td>
-      <td>IsAdmin</td>
-      <td>IsActive</td>
-    </thead>
-    <tbody>
+<div><h1 class="text-danger">User-List</h1>
+<div><a routerLink="/user/create">Create</a></div>
+</div>
+<table class="table table-striped text-center">
+  <thead class="font-weight-bold">
+    <td>ID</td>
+    <td>Username</td>
+    <td [hidden]="!canView">Password</td>
+    <td>Firstname</td>
+    <td>Lastname</td>
+    <td>Email</td>
+    <td>Phone</td>
+    <td [hidden]="!canView">IsReviewer</td>
+    <td [hidden]="!canView">IsAdmin</td>
+    <td>IsActive</td>
+    <td>Actions</td>
+  </thead>
+  <tbody>
     <tr *ngFor="let user of users">
       <td>{{user.id}}</td>
       <td>{{user.username}}</td>
-      <td>{{user.password}}</td>
+      <td [hidden]="!canView">{{user.password}}</td>
       <td>{{user.firstname}}</td>
       <td>{{user.lastname}}</td>
       <td>{{user.email}}</td>
       <td>{{user.phone}}</td>
-      <td>{{user.isReviewer}}</td>
-      <td>{{user.isAdmin}}</td>
-      <td>{{user.isActive}}</td>
+      <td [hidden]="!canView">{{(user.isReviewer? "Yes" : "No")}}</td>
+      <td [hidden]="!canView">{{(user.isAdmin ? "Yes" : "No")}}</td>
+      <td>{{(user.isActive ? "Yes": "No")}}</td>
       <td>
-        <a routerLink="/user/detail/{user.id}">Detail</a>
-        <a routerLink="/user/edit/{user.id}">Edit</a>
+        <a routerLink="/user/detail/{{user.id}}">Detail</a> |
+        <a routerLink="/user/edit/{{user.id}}">Edit</a>
       </td>
 
     </tr>
-    </tbody>
-  </table> 
-
+  </tbody>
+</table>

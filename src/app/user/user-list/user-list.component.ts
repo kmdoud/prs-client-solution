@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { User } from '../user.class';
-import { listenToElementOutputs } from '@angular/core/src/view/element';
+import { User } from '../user.class'; 
 
 @Component
 ({
@@ -13,6 +12,9 @@ export class UserListComponent implements OnInit
 {
   users: User[];
 
+  canView: boolean = false;
+
+
   constructor(private usersrv: UserService) { }
 
   ngOnInit() 
@@ -23,6 +25,7 @@ export class UserListComponent implements OnInit
           console.log(resp);
           this.users = resp;
         });
+
     
   }
 
