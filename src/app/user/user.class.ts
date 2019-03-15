@@ -11,10 +11,10 @@ export class User
     isAdmin: boolean;
     isActive: boolean;
 
-    constructor ( id = 0, username: string, password: string, firstname: string, lastname: string,
+    constructor ( username: string, password: string, firstname: string, lastname: string,
         phone: string, email: string, isReviewer: boolean = false , isAdmin: boolean = false , isActive: boolean = true)
     {
-        this.id = id;
+        this.id = 0;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
