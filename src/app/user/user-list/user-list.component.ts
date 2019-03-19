@@ -12,7 +12,7 @@ export class UserListComponent implements OnInit
 {
   users: User[];
 
-  canView: boolean = false;
+  canView: boolean = true;
 
 
   constructor(private usersrv: UserService) { }
