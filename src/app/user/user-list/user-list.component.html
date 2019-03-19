@@ -1,5 +1,7 @@
+<app-menu></app-menu>
 <div><h1 class="text-danger">User-List</h1>
 <div><a routerLink="/user/create">Create</a></div>
+<div><input [(ngModel)]="searchCriteria" type="text"></div>
 </div>
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
@@ -16,7 +18,7 @@
     <td>Actions</td>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users | search: searchCriteria">
       <td>{{user.id}}</td>
       <td>{{user.username}}</td>
       <td [hidden]="!canView">{{user.password}}</td>
@@ -24,9 +26,9 @@
       <td>{{user.lastname}}</td>
       <td>{{user.email}}</td>
       <td>{{user.phone}}</td>
-      <td [hidden]="!canView">{{(user.isReviewer? "Yes" : "No")}}</td>
-      <td [hidden]="!canView">{{(user.isAdmin ? "Yes" : "No")}}</td>
-      <td>{{(user.isActive ? "Yes": "No")}}</td>
+      <td [hidden]="!canView">{{(user.isReviewer| booldisp)}}</td>
+      <td [hidden]="!canView">{{(user.isAdmin | booldisp)}}</td>
+      <td>{{(user.isActive | booldisp)}}</td>
       <td>
         <a routerLink="/user/detail/{{user.id}}">Detail</a> |
         <a routerLink="/user/edit/{{user.id}}">Edit</a>

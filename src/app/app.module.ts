@@ -12,6 +12,11 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './user/login/login.component';
+import { MenuComponent } from './system/menu/menu.component';
+import { MenuItemComponent } from './system/menu-item/menu-item.component';
+import { BooldispPipe } from './system/booldisp.pipe';
+import { SearchPipe } from './system/search.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +26,12 @@ import { AboutComponent } from './about/about.component';
     UserCreateComponent,
     UserEditComponent,
     HomeComponent,
-    AboutComponent 
+    AboutComponent,
+    LoginComponent,
+    MenuComponent,
+    MenuItemComponent,
+    BooldispPipe,
+    SearchPipe 
   ],
   imports: [
     BrowserModule,

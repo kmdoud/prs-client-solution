@@ -1,3 +1,4 @@
+<app-menu></app-menu>
 <h1 class="text-danger">User Detail</h1>
 <table *ngIf="user" class="table table-striped text-center">
  <thead class="font-weight-bold">
@@ -23,6 +24,10 @@
    <td>{{(user.isActive ? "Yes" : "No")}}</td> 
    
 
- </tbody>  
+ </tbody>
 </table>
+<div><button (click)="setVerifyT()">DELETE</button></div>
+<div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
+<div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 
+
 <div><a routerLink= "/user/list">Return to List</a></div>

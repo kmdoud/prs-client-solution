@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { User } from '../user.class'; 
+import { User } from '../user.class';
+import { SystemService } from '../../system/system.service';
 
 @Component
 ({
@@ -12,10 +13,12 @@ export class UserListComponent implements OnInit
 {
   users: User[];
 
+  searchCriteria: string = "";
+
   canView: boolean = true;
 
 
-  constructor(private usersrv: UserService) { }
+  constructor(private usersrv: UserService, private syssrv: SystemService) { }
 
   ngOnInit() 
   {

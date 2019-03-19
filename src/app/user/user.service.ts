@@ -11,6 +11,11 @@ const url = "http://localhost:63201/api";
 export class UserService 
 {
  //methods
+  login(username: string, password: string): Observable<User>
+  {
+    return this.http.get(`${url}/users/auth/${username}/${password}`) as Observable<User>;
+  }
+
   list(): Observable<User[]>
   {
     return this.http.get(`${url}/users`) as Observable<User[]>;

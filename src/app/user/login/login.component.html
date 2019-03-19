@@ -1,0 +1,29 @@
+<div class="loginform">
+  <table class="table">
+    <tr>
+      <td>
+        Username:
+      </td>
+      <td>
+        <input [(ngModel)]="username" type="text">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Password:
+      </td>
+      <td>
+        <input [(ngModel)]="password" type="password">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button (click)="login()">LOGIN</button>
+      </td>
+      <td>
+        &nbsp;
+      </td>
+    </tr>
+  </table>
+  <span class="">{{message}}</span>
+</div>
