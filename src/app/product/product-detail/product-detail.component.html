@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+<h1 class="text-danger">Product Detail</h1>
+<table *ngIf="product" class="table table-striped text-center">
+ <thead class="font-weight-bold">
+   <td>Vendor</td>
+   <td>Partnumber</td>
+   <td>Name</td>
+   <td>Price</td>
+   <td>Unit</td>
+   <td>Photopath</td>
+   <td>Is Active</td>
+ </thead>
+ <tbody>
+   <td>{{product.vendor.name}}</td>
+   <td>{{product.partNumber}}</td>
+   <td>{{product.name}}</td>
+   <td>{{product.price}}</td>
+   <td>{{product.unit}}</td>
+   <td>{{product.photoPath}}</td>
+   <td>{{(product.isActive | booldisp)}}</td> 
+   </tbody>
+</table>
+<div><button (click)="setVerifyT()">DELETE</button></div>
+<div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
+<div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 
+
+<div><a routerLink= "/product/list">Return to List</a></div>

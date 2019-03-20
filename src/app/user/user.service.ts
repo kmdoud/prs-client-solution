@@ -5,7 +5,8 @@ import { User } from "./user.class";
 
 const url = "http://localhost:63201/api";
 
-@Injectable({
+@Injectable
+({
   providedIn: 'root'
 })
 export class UserService 

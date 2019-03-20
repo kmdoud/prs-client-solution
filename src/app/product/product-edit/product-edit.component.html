@@ -1,0 +1,60 @@
+<app-menu></app-menu>
+<table *ngIf="product">
+  <tr>
+    <td>
+      Vendor
+    </td>
+    <!-- <td>
+      <input [(ngModel)]="product.vendor.name" type="text">
+    </td> -->
+  </tr>
+  <tr>
+    <td>Partnumber</td>
+    <td>
+      <input [(ngModel)]="product.partNumber" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      <input [(ngModel)]="product.name" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Price
+    </td>
+    <td>
+      <input [(ngModel)]="product.price" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Unit
+    </td>
+    <td>
+      <input [(ngModel)]="product.unit" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Photopath
+    </td>
+    <td>
+      <input [(ngModel)]="product.photoPath" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      IsActive
+    </td>
+    <td>
+      <input [(ngModel)]="product.isActive" type="checkbox">   
+    </td>
+  </tr>
+  <tr>
+    <button (click)= "save()">Save</button>
+  </tr>
+</table>

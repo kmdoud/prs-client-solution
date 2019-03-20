@@ -5,7 +5,6 @@
 </div>
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
-    <td>Id</td>
     <td>Code</td>
     <td>Name</td>
     <td>Address</td>
@@ -20,7 +19,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let vendor of vendors | vsearch: searchCriteria">
-      <td>{{vendor.id}}</td>
       <td>{{vendor.code}}</td>
       <td>{{vendor.name}}</td>
       <td>{{vendor.address}}</td>
