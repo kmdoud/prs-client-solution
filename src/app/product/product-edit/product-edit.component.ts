@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product.class';
 import { SystemService } from '../../system/system.service';
+import { Vendor } from '../../vendor/vendor.class';
+import { VendorService } from '../../vendor/vendor.service';
+
 
 @Component
 ({
@@ -13,6 +16,7 @@ import { SystemService } from '../../system/system.service';
 export class ProductEditComponent implements OnInit 
 {
   product: Product;
+  vendors: Vendor[];
 
   save():void
   {
@@ -33,12 +37,19 @@ export class ProductEditComponent implements OnInit
   ( private productsrv: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    private syssrv: SystemService
+    private syssrv: SystemService,
+    private vendorsrv: VendorService
   ) { }
 
   ngOnInit() 
   {
     let id = this.route.snapshot.params.id;
+
+    this.vendorsrv.list()
+    .subscribe(resp => 
+      {
+        this.vendors = resp;
+      })
 
     this.productsrv.get(id)
       .subscribe(

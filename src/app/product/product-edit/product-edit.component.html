@@ -4,9 +4,11 @@
     <td>
       Vendor
     </td>
-    <!-- <td>
-      <input [(ngModel)]="product.vendor.name" type="text">
-    </td> -->
+    <td>
+      <select [(ngModel)]="product.vendorId">
+        <option *ngFor="let vendor of vendors" [ngValue]="vendor.id">{{vendor.name}}</option>
+      </select>
+    </td>
   </tr>
   <tr>
     <td>Partnumber</td>

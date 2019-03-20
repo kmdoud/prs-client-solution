@@ -5,7 +5,9 @@
       Vendor
     </td>
     <td>
-      <input [(ngModel)]="product.vendor.name" type="text">
+        <select [(ngModel)]="product.vendorId">
+            <option *ngFor="let vendor of vendors" [ngValue]="vendor.id">{{vendor.name}}</option>
+        </select>
     </td>
   </tr>
   <tr>
