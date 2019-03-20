@@ -15,6 +15,8 @@ export class VendorListComponent implements OnInit
 
   canView: boolean = true;
 
+  searchCriteria: string = "";
+
 
 
   constructor(private vendorsrv: VendorService, private syssrv: SystemService) { }

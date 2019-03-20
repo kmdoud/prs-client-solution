@@ -1,3 +1,85 @@
-<p>
-  vendor-create works!
-</p>
+<app-menu></app-menu>
+<table *ngIf="vendor">
+  <tr>
+    <td>Code</td>
+    <td>
+      <input [(ngModel)]="vendor.code" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.name" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Address
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.address" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      City
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.city" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      State
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.state" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Zip
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.zip" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Phone
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.phone" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Email
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.email" type="text">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      IsPreferred
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.isPreferred" type="checkbox">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      IsActive
+    </td>
+    <td>
+      <input [(ngModel)]="vendor.isActive" type="checkbox">   
+    </td>
+  </tr>
+  <tr>
+    <button (click)= "save()">Save</button>
+  </tr>
+</table>
+

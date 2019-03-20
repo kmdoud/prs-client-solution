@@ -1,3 +1,40 @@
-<p>
-  vendor-list works!
-</p>
+<app-menu></app-menu>
+<div><h1 class="text-danger">Vendor List</h1>
+<div><a routerLink="/vendor/create">Create</a></div>
+<div><input [(ngModel)]="searchCriteria" type="text"></div>
+</div>
+<table class="table table-striped text-center">
+  <thead class="font-weight-bold">
+    <td>Id</td>
+    <td>Code</td>
+    <td>Name</td>
+    <td>Address</td>
+    <td>City</td>
+    <td>State</td>
+    <td>Zip</td>
+    <td>Phone</td>
+    <td>Email</td>
+    <td [hidden]="!canView">IsPreferred</td>
+    <td>IsActive</td>
+    <td>Actions</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let vendor of vendors | vsearch: searchCriteria">
+      <td>{{vendor.id}}</td>
+      <td>{{vendor.code}}</td>
+      <td>{{vendor.name}}</td>
+      <td>{{vendor.address}}</td>
+      <td>{{vendor.city}}</td>
+      <td>{{vendor.state}}</td>
+      <td>{{vendor.zip}}</td>
+      <td>{{vendor.phone}}</td>
+      <td>{{vendor.email}}</td>
+      <td [hidden]="!canView">{{vendor.isPreferred | booldisp}}</td>
+      <td>{{vendor.isActive | booldisp}}</td>
+      <td>
+        <a routerLink="/vendor/detail/{{vendor.id}}">Detail</a> |
+        <a routerLink="/vendor/edit/{{vendor.id}}">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

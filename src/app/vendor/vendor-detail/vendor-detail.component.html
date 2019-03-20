@@ -1,3 +1,36 @@
-<p>
-  vendor-detail works!
-</p>
+<app-menu></app-menu>
+<h1 class="text-danger">Vendor Detail</h1>
+<table *ngIf="vendor" class="table table-striped text-center">
+ <thead class="font-weight-bold">
+   <td>Id</td>
+   <td>Code</td>
+   <td>Name</td>
+   <td>Address</td>
+   <td>City</td>
+   <td>State</td>
+   <td>Zip</td>
+   <td>Phone</td>
+   <td>Email</td>
+   <td>IsPreferred/IsActive</td>
+ </thead>
+ <tbody>
+   <td>{{vendor.id}}</td>
+   <td>{{vendor.code}}</td>
+   <td>{{vendor.name}}</td>
+   <td>{{vendor.address}}</td>
+   <td>{{vendor.city}}</td>
+   <td>{{vendor.state}}</td>
+   <td>{{vendor.zip}}</td>
+   <td>{{vendor.phone}}</td>
+   <td>{{vendor.email}}</td>
+   <td>{{(vendor.isPreferred | booldisp)}} | {{(vendor.isActive | booldisp)}}</td>
+
+   
+
+ </tbody>
+</table>
+<div><button (click)="setVerifyT()">DELETE</button></div>
+<div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
+<div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 
+
+<div><a routerLink= "/vendor/list">Return to List</a></div>
