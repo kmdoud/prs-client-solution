@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div><h1 class="text-danger">Product-List</h1>
 <div><a routerLink="/product/create">Create</a></div>
-<!-- <div><input [(ngModel)]="searchCriteria" type="text"></div> -->
+<div><input [(ngModel)]="psearchCriteria" type="text"></div>
 </div>
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
@@ -15,12 +15,11 @@
     <td>Actions</td>
   </thead>
   <tbody>
-      <!-- search: psearchCriteria -->
-    <tr *ngFor="let product of products"> 
+    <tr *ngFor="let product of products | psearch: psearchCriteria"> 
       <td>{{product.vendor.name}}</td>
       <td>{{product.partNumber}}</td>
       <td>{{product.name}}</td>
-      <td>{{product.price}}</td>
+      <td>{{product.price | currency}}</td>
       <td>{{product.unit}}</td>
       <td>{{product.photoPath}}</td>
       <td>{{(product.isActive | booldisp )}}</td>

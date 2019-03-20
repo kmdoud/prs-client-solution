@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<div><h1 class="text-danger">Request-List</h1>
+<div><a routerLink="/request/create">Create</a></div>
+<div><input [(ngModel)]="rsearchCriteria" type="text"></div>
+</div>
+<table class="table table-striped text-center">
+  <thead class="font-weight-bold">
+    <td>User</td>
+    <td>Description</td>
+    <td>Justification</td>
+    <td>Rejection Reason</td>
+    <td>Delivery Mode</td>
+    <td>Submit Date</td>
+    <td>Status</td>
+    <td>Total</td>
+    <td>Actions</td>
+  </thead>
+  <tbody>
+      <!-- rsearch: rsearchCriteria -->
+    <tr *ngFor="let request of requests | rsearch: rsearchCriteria"> 
+      <td>{{request.user.username}}</td>
+      <td>{{request.description}}</td>
+      <td>{{request.justification}}</td>
+      <td>{{request.rejectionReason}}</td>
+      <td>{{request.deliveryMode}}</td>
+      <td>{{request.submittedDate}}</td>
+      <td>{{request.status}}</td>
+      <td>{{request.total | currency}}</td>
+      <td>
+        <a routerLink="/request/detail/{{request.id}}">Detail</a> |
+        <a routerLink="/request/edit/{{request.id}}">Edit</a>
+      </td>
+
+    </tr>
+  </tbody>
+</table>

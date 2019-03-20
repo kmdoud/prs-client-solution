@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from '../product.service';
-import { Product } from '../product.class';
+import { RequestService } from '../request.service';
+import { Request } from '../request.class';
 import { SystemService } from '../../system/system.service';
-import { Vendor } from '../../vendor/vendor.class';
-import { VendorService } from '../../vendor/vendor.service';
-
+import { User } from '../../user/user.class';
+import { UserService } from '../../user/user.service';
 
 @Component
 ({
-  selector: 'app-product-edit',
-  templateUrl: './product-edit.component.html',
-  styleUrls: ['./product-edit.component.css']
+  selector: 'app-request-edit',
+  templateUrl: './request-edit.component.html',
+  styleUrls: ['./request-edit.component.css']
 })
-export class ProductEditComponent implements OnInit 
+export class RequestEditComponent implements OnInit 
 {
-  product: Product;
-  vendors: Vendor[];
+
+  request: Request;
+  users: User[];
 
   save():void
   {
-    this.productsrv.change(this.product)
+    this.requestsrv.change(this.request)
       .subscribe
       (resp => 
         {
           console.log("Update Succesful: ", resp);
-          this.router.navigateByUrl("/product/list");
+          this.router.navigateByUrl("/request/list");
         },
         err => 
         {
@@ -34,29 +34,29 @@ export class ProductEditComponent implements OnInit
   }
 
   constructor
-  ( private productsrv: ProductService,
+  ( private requestsrv: RequestService,
     private route: ActivatedRoute,
     private router: Router,
     private syssrv: SystemService,
-    private vendorsrv: VendorService
+    private usersrv: UserService
   ) { }
 
   ngOnInit() 
   {
     let id = this.route.snapshot.params.id;
 
-    this.vendorsrv.list()
+    this.usersrv.list()
     .subscribe(resp => 
       {
-        this.vendors = resp;
+        this.users = resp;
       })
 
-    this.productsrv.get(id)
+    this.requestsrv.get(id)
       .subscribe(
         resp => 
         {
           console.log(resp)
-          this.product = resp;
+          this.request = resp;
         },
         err => 
         {

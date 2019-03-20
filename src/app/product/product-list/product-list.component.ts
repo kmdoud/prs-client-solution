@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit
 {
   products: Product[];
 
-  searchCriteria: string = "";
+  psearchCriteria: string = "";
 
   canView: boolean = true;
 

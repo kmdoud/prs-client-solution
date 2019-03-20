@@ -1,0 +1,30 @@
+<app-menu></app-menu>
+<h1 class="text-danger">Request Detail</h1>
+<table *ngIf="request" class="table table-striped text-center">
+ <thead class="font-weight-bold">
+   <td>User</td>
+   <td>Description</td>
+   <td>Justification</td>
+   <td>Rejection Reason</td>
+   <td>Delivery Mode</td>
+   <td>Submit Date</td>
+   <td>Status</td>
+   <td>Total</td>
+ </thead>
+ <tbody>
+    <td>{{request.user.username}}</td>
+    <td>{{request.description}}</td>
+    <td>{{request.justification}}</td>
+    <td>{{request.rejectionReason}}</td>
+    <td>{{request.deliveryMode}}</td>
+    <td>{{request.submittedDate}}</td>
+    <td>{{request.status}}</td>
+    <td>{{request.total | currency}}</td>
+   </tbody>
+</table>
+<div><button (click)="setVerifyT()">DELETE</button></div>
+<div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
+<div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 
+
+<div><a routerLink= "/request/list">Return to List</a></div>
+
