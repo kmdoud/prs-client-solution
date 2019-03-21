@@ -6,16 +6,16 @@
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
     <td>Vendor</td>
-    <td>Partnumber</td>
-    <td>Name</td>
+    <td><a (click)="sortBy('partNumber')">Partnumber</a></td>
+    <td><a (click)="sortBy('name')">Name</a></td>
     <td>Price</td>
-    <td>Unit</td>
-    <td>Photopath</td>
+    <td><a (click)="sortBy('unit')">Unit</a></td>
+    <td><a (click)="sortBy('photoPath')">Photopath</a></td>
     <td>IsActive</td>
     <td>Actions</td>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products | psearch: psearchCriteria"> 
+    <tr *ngFor="let product of products | psearch: psearchCriteria | sort:sortCriteria:sortOrder"> 
       <td>{{product.vendor.name}}</td>
       <td>{{product.partNumber}}</td>
       <td>{{product.name}}</td>

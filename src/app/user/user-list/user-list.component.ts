@@ -14,10 +14,11 @@ export class UserListComponent implements OnInit
   users: User[];
 
   searchCriteria: string = "";
+ 
+  canView: boolean = true;
 
   sortCriteria: string = "lastname";
   sortOrder: string = "asc";
-  canView: boolean = true;
 
   sortBy(column: string): void
   {

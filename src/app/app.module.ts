@@ -33,6 +33,9 @@ import { RequestEditComponent } from './request/request-edit/request-edit.compon
 import { PsearchPipe } from './system/psearch.pipe';
 import { RsearchPipe } from './system/rsearch.pipe';
 import { SortPipe } from './system/sort.pipe';
+import { RequestLineListComponent } from './requestLine/request-line-list/request-line-list.component';
+import { RequestLineEditComponent } from './requestLine/request-line-edit/request-line-edit.component';
+import { RequestLineCreateComponent } from './requestLine/request-line-create/request-line-create.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,10 @@ import { SortPipe } from './system/sort.pipe';
     RequestEditComponent,
     PsearchPipe,
     RsearchPipe,
-    SortPipe 
+    SortPipe,
+    RequestLineListComponent,
+    RequestLineEditComponent,
+    RequestLineCreateComponent 
   ],
   imports: [
     BrowserModule,

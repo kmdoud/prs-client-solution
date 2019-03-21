@@ -13,9 +13,25 @@ export class ProductListComponent implements OnInit
 {
   products: Product[];
 
-  psearchCriteria: string = "";
-
   canView: boolean = true;
+  psearchCriteria: string = "";
+  sortCriteria: string = "name";
+  sortOrder: string = "asc";
+
+  sortBy(column: string): void
+  {
+    if(this.sortCriteria === column)
+    {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+    }
+    else
+    {
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
+
+
 
 
   constructor(private productsrv: ProductService, private syssrv: SystemService) { }

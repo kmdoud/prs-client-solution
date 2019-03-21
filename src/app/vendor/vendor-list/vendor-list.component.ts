@@ -16,6 +16,21 @@ export class VendorListComponent implements OnInit
   canView: boolean = true;
 
   searchCriteria: string = "";
+  sortCriteria: string = "code";
+  sortOrder: string = "asc";
+
+  sortBy(column: string): void
+  {
+    if(this.sortCriteria === column)
+    {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+    }
+    else
+    {
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
 
 
 

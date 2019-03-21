@@ -13,10 +13,27 @@ export class RequestListComponent implements OnInit
 {
 
   requests: Request[];
+  
+  canView: boolean = true;
 
   rsearchCriteria: string = "";
+  sortCriteria: string = "submittedDate";
+  sortOrder: string = "asc";
 
-  canView: boolean = true;
+  sortBy(column: string): void
+  {
+    if(this.sortCriteria === column)
+    {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+    }
+    else
+    {
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
+
+
 
 
   constructor(private requestsrv: RequestService, private syssrv: SystemService) { }

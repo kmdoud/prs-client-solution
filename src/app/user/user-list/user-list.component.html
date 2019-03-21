@@ -6,10 +6,10 @@
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
     <td><a (click)="sortBy('username')">Username</a></td>
-    <td [hidden]="!canView">Password</td>
-    <td>Firstname</td>
-    <td>Lastname</td>
-    <td>Email</td>
+    <td [hidden]="!canView"><a (click)="sortBy('password')">Password</a></td>
+    <td><a (click)="sortBy('firstname')">Firstname</a></td>
+    <td><a (click)="sortBy('lastname')">Lastname</a></td>
+    <td><a (click)="sortBy('email')">Email</a></td>
     <td>Phone</td>
     <td [hidden]="!canView">IsReviewer</td>
     <td [hidden]="!canView">IsAdmin</td>

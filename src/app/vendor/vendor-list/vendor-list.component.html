@@ -5,20 +5,20 @@
 </div>
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
-    <td>Code</td>
-    <td>Name</td>
-    <td>Address</td>
-    <td>City</td>
-    <td>State</td>
-    <td>Zip</td>
-    <td>Phone</td>
-    <td>Email</td>
+    <td><a (click)="sortBy('code')">Code</a></td>
+    <td><a (click)="sortBy('name')">Name</a></td>
+    <td><a (click)="sortBy('address')">Address</a></td>
+    <td><a (click)="sortBy('city')">City</a></td>
+    <td><a (click)="sortBy('state')">State</a></td>
+    <td><a (click)="sortBy('zip')">Zip</a></td>
+    <td><a (click)="sortBy('phone')">Phone</a></td>
+    <td><a (click)="sortBy('email')">Email</a></td>
     <td [hidden]="!canView">IsPreferred</td>
     <td>IsActive</td>
     <td>Actions</td>
   </thead>
   <tbody>
-    <tr *ngFor="let vendor of vendors | vsearch: searchCriteria">
+    <tr *ngFor="let vendor of vendors | vsearch: searchCriteria | sort:sortCriteria:sortOrder">
       <td>{{vendor.code}}</td>
       <td>{{vendor.name}}</td>
       <td>{{vendor.address}}</td>

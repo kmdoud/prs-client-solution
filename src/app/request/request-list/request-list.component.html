@@ -6,18 +6,18 @@
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
     <td>User</td>
-    <td>Description</td>
-    <td>Justification</td>
-    <td>Rejection Reason</td>
-    <td>Delivery Mode</td>
-    <td>Submit Date</td>
-    <td>Status</td>
+    <td><a (click)="sortBy('description')">Description</a></td>
+    <td><a (click)="sortBy('justification')">Justification</a></td>
+    <td><a (click)="sortBy('rejectionReason')">Rejection Reason</a></td>
+    <td><a (click)="sortBy('deliveryMode')">Delivery Mode</a></td>
+    <td><a (click)="sortBy('submittedDate')">Submit Date</a></td>
+    <td><a (click)="sortBy('status')">Status</a></td>
     <td>Total</td>
     <td>Actions</td>
   </thead>
   <tbody>
       <!-- rsearch: rsearchCriteria -->
-    <tr *ngFor="let request of requests | rsearch: rsearchCriteria"> 
+    <tr *ngFor="let request of requests | rsearch: rsearchCriteria | sort:sortCriteria:sortOrder"> 
       <td>{{request.user.username}}</td>
       <td>{{request.description}}</td>
       <td>{{request.justification}}</td>
@@ -28,7 +28,8 @@
       <td>{{request.total | currency}}</td>
       <td>
         <a routerLink="/request/detail/{{request.id}}">Detail</a> |
-        <a routerLink="/request/edit/{{request.id}}">Edit</a>
+        <a routerLink="/request/edit/{{request.id}}">Edit</a> |
+        <a routerLink="/requestLine/list/{{request.id}}">Lines</a>
       </td>
 
     </tr>
