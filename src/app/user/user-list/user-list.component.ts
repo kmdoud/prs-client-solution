@@ -15,7 +15,22 @@ export class UserListComponent implements OnInit
 
   searchCriteria: string = "";
 
+  sortCriteria: string = "lastname";
+  sortOrder: string = "asc";
   canView: boolean = true;
+
+  sortBy(column: string): void
+  {
+    if(this.sortCriteria === column)
+    {
+      this.sortOrder = this.sortOrder === "asc" ? "desc" : "asc";
+    }
+    else
+    {
+      this.sortCriteria = column;
+      this.sortOrder = "asc";
+    }
+  }
 
 
   constructor(private usersrv: UserService, private syssrv: SystemService) { }

@@ -32,6 +32,7 @@ import { RequestCreateComponent } from './request/request-create/request-create.
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { PsearchPipe } from './system/psearch.pipe';
 import { RsearchPipe } from './system/rsearch.pipe';
+import { SortPipe } from './system/sort.pipe';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { RsearchPipe } from './system/rsearch.pipe';
     RequestCreateComponent,
     RequestEditComponent,
     PsearchPipe,
-    RsearchPipe 
+    RsearchPipe,
+    SortPipe 
   ],
   imports: [
     BrowserModule,
