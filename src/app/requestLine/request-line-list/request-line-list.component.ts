@@ -3,6 +3,8 @@ import { Request } from '../../request/request.class';
 import { RequestService } from '../../request/request.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from '../../system/system.service';
+import { RequestLineService } from '../../requestLine/request-line.service'; 
+import { RequestLine } from '../request-line.class';
 
 @Component
 ({
@@ -14,6 +16,7 @@ export class RequestLineListComponent implements OnInit
 {
 
   request: Request;
+  requestLine: RequestLine;
   
   canView: boolean = true;
 
@@ -34,6 +37,23 @@ export class RequestLineListComponent implements OnInit
   //   }
   // }
 
+  delete(requestLine: RequestLine): void
+  {
+    this.requestLinesrv.remove(requestLine)
+      .subscribe
+      (
+        resp =>
+        {
+          console.log("Request Line Delete Successful", resp);
+          this.router.navigateByUrl(`/requestLine/list/${this.request.id}`);
+        },
+        err =>
+        {
+          console.error("Delete Failed", err);
+        }
+      );
+  }
+
 
 
 
@@ -42,6 +62,7 @@ export class RequestLineListComponent implements OnInit
     private syssrv: SystemService,
     private route: ActivatedRoute,
     private router: Router,
+    private requestLinesrv: RequestLineService
   ) { }
 
   ngOnInit() 

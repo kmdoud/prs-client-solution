@@ -31,7 +31,7 @@
       <td>{{requestLine.product.price * requestLine.quantity | currency}}</td>
       <td>
           <a routerLink="/requestLine/edit/{{requestLine.id}}">Edit</a> |
-          <a (click)="delete()" routerLink="/requestLine/edit/{{request.id}}">Remove</a>
+          <button (click)="delete(requestLine)">Remove</button>
           
       </td>
     </tr>

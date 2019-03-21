@@ -34,6 +34,22 @@ export class RequestLineEditComponent implements OnInit
           console.error("Update Failed");
         });
   }
+  delete(): void
+  {
+    this.requestLinesrv.remove(this.requestLine)
+      .subscribe
+      (
+        resp =>
+        {
+          console.log("Request Line Delete Successful", resp);
+          this.router.navigateByUrl("/requestLine/list/{{request.id}}");
+        },
+        err =>
+        {
+          console.error("Delete Failed", err);
+        }
+      );
+  }
 
   constructor
   ( private requestLinesrv: RequestLineService ,
