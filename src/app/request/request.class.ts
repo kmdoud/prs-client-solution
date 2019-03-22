@@ -10,17 +10,16 @@ export class Request
     status: string;
     total: number;
 
-    constructor(id: number, userId: number, description: string, justification: string, rejectionReason: string, deliveryMode: string, submittedDate: string,
-        status: string, total: number)
+    constructor()
     {
         this.id = 0;
-        this.userId = userId;
-        this.description = description;
-        this.justification = justification;
-        this.rejectionReason = rejectionReason;
-        this.deliveryMode = deliveryMode;
-        this.submittedDate = submittedDate;
-        this.status = status;
+        this.userId = 0;
+        this.description = '';
+        this.justification = '';
+        this.rejectionReason = '';
+        this.deliveryMode = '';
+        this.submittedDate = '';
+        this.status = "NEW";
         this.total = 0;
     }
 }

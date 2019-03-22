@@ -26,6 +26,24 @@ export class RequestDetailComponent implements OnInit
     this.verify = false;
   };
 
+  review(): void
+  {
+    this.requestsrv.review(this.request)
+      .subscribe
+      (
+        resp =>
+        {
+          console.log(" Request Review Successful", resp);
+          this.router.navigateByUrl("/request/list");
+        },
+        err => 
+        {
+          console.error(" Review Failed", err);
+        }
+        
+      );
+  }
+
   delete(): void
   {
     this.requestsrv.remove(this.request)

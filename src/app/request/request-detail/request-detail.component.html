@@ -22,6 +22,7 @@
     <td>{{request.total | currency}}</td>
    </tbody>
 </table>
+<div><button (click)="review()">REVIEW</button></div>
 <div><button (click)="setVerifyT()">DELETE</button></div>
 <div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
 <div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 

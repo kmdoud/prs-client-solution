@@ -15,7 +15,7 @@ import { UserService } from '../../user/user.service';
 export class RequestCreateComponent implements OnInit 
 {
 
-  request: Request = new Request(0,0,'','','','','','',0);
+  request: Request = new Request();
   users: User[];
 
   save(): void

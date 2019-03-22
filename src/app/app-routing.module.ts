@@ -28,6 +28,10 @@ import { RequestLineListComponent } from './requestLine/request-line-list/reques
 import { RequestLineEditComponent } from './requestLine/request-line-edit/request-line-edit.component';
 import { RequestLineCreateComponent } from './requestLine/request-line-create/request-line-create.component';
 
+import { RequestReviewComponent } from './request/request-review/request-review.component';
+
+import { RequestReviewLinesComponent } from './request/request-review-lines/request-review-lines.component';
+
 
 
 import { LoginComponent } from './user/login/login.component';
@@ -61,6 +65,10 @@ const routes: Routes =
   {path: 'requestLine/list/:prid', component: RequestLineListComponent },
   {path: 'requestLine/create/:prid', component: RequestLineCreateComponent },
   {path: 'requestLine/edit/:id', component: RequestLineEditComponent },
+
+  {path: 'request/review', component: RequestReviewComponent},
+
+  {path: 'request/review/lines/:id', component: RequestReviewLinesComponent },
 
   
 

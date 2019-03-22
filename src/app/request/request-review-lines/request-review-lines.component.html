@@ -1,0 +1,37 @@
+<app-menu></app-menu>
+<div><h1 class="text-danger">Request Review Line-List</h1>
+<div *ngIf="request"><a routerLink="/requestLine/create/{{request.id}}">Create</a></div>
+<!-- <div><input [(ngModel)]="rsearchCriteria" type="text"></div> -->
+</div>
+<table *ngIf="request"  class="table text-center">
+  <thead class="font-weight-bold">
+    <td>Description</td>
+    <td>Status</td>
+    <td>Total</td>
+    <td>User</td>
+  </thead>
+  <tbody>
+    <td>{{request.description}}</td>
+    <td>{{request.status}}</td>
+    <td>{{request.total | currency}}</td>
+    <td>{{request.user.username}}</td>
+  </tbody>
+</table>
+<table *ngIf="request" class="table table-striped text-center">
+  <thead class="font-weight-bold">
+    <td>Product</td>
+    <td>Quantity</td>
+    <td>Line Total</td>
+    <td>Actions</td>
+  </thead>
+  <tbody>
+    <tr *ngFor="let requestLine of request.requestLines">
+      <td>{{requestLine.product.name}}</td>
+      <td>{{requestLine.quantity}}</td>
+      <td>{{requestLine.product.price * requestLine.quantity | currency}}</td>
+    </tr>
+
+  </tbody>
+  <button (click)="approve(request)">Approve</button>|
+  <button (click)="reject(request)">Deny</button>
+</table>
