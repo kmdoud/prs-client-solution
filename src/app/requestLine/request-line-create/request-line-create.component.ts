@@ -14,18 +14,20 @@ import { Product } from '../../product/product.class';
 export class RequestLineCreateComponent implements OnInit 
 {
 
+  requestId: number;
   requestLine: RequestLine = new RequestLine (0,0);
   products: Product[];
 
   save(): void
   {
+    this.requestLine.requestId = this.requestId
     this.requestLinesrv.create(this.requestLine)
       .subscribe
       (
         resp => 
         {
           console.log(resp);
-          this.router.navigateByUrl('/requestLine/list/:prid');
+          this.router.navigateByUrl(`/requestLine/list/${this.requestId}`);
         },
         err => 
         {
@@ -35,6 +37,7 @@ export class RequestLineCreateComponent implements OnInit
   }
   constructor
   ( private requestLinesrv: RequestLineService,
+    private route: ActivatedRoute,
     private router: Router,
     private syssrv: SystemService,
     private productsrv: ProductService
@@ -42,6 +45,7 @@ export class RequestLineCreateComponent implements OnInit
 
   ngOnInit() 
   {
+    this.requestId = this.route.snapshot.params.prid;
     this.productsrv.list()
       .subscribe(resp => 
         {

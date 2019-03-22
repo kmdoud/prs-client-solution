@@ -4,7 +4,7 @@ import { RequestLine } from '../../requestLine/request-line.class';
 import { SystemService } from '../../system/system.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../product/product.service';
-import { Product } from '../../product/product.class'; 
+import { Product } from '../../product/product.class';
 
 
 
@@ -16,7 +16,6 @@ import { Product } from '../../product/product.class';
 })
 export class RequestLineEditComponent implements OnInit 
 {
-
   requestLine: RequestLine;
   products: Product[];
 
@@ -27,7 +26,7 @@ export class RequestLineEditComponent implements OnInit
       (resp => 
         {
           console.log("Update Succesful: ", resp);
-          this.router.navigateByUrl("/requestLine/list/:prid");
+          this.router.navigateByUrl(`/requestLine/list/${this.requestLine.requestId}`);
         },
         err => 
         {
@@ -56,7 +55,7 @@ export class RequestLineEditComponent implements OnInit
     private route: ActivatedRoute,
     private router: Router,
     private syssrv: SystemService,
-    private productsrv: ProductService
+    private productsrv: ProductService,
     
   ) { }
 
