@@ -1,7 +1,7 @@
 <div>
   <nav>
     <ul>
-    <app-menu-item [menuitem] = "menuitem" *ngFor="let menuitem of menu"></app-menu-item>
+    <app-menu-item [hidden]="!isReviewer && menuitem.display == 'Reviews'" [menuitem] = "menuitem" *ngFor="let menuitem of menu"></app-menu-item>
     </ul>
   </nav>
 </div>

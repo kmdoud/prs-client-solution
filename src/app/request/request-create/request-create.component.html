@@ -1,16 +1,6 @@
 <app-menu></app-menu>
 <table *ngIf="request">
   <tr>
-    <td>
-      User
-    </td>
-    <td>
-      <select [(ngModel)]="request.userId">
-        <option *ngFor="let user of users" [ngValue]="user.id">{{user.username}}</option>
-      </select>
-    </td>
-  </tr>
-  <tr>
     <td>Description</td>
     <td>
       <input [(ngModel)]="request.description" type="text">

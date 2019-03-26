@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VendorService } from '../vendor.service';
 import { Vendor } from '../vendor.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component
 ({
@@ -13,7 +14,8 @@ export class VendorListComponent implements OnInit
 {
   vendors: Vendor[];
 
-  canView: boolean = true;
+  loggedInUser: User;
+  isAdmin: boolean;
 
   searchCriteria: string = "";
   sortCriteria: string = "code";
@@ -38,6 +40,9 @@ export class VendorListComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin()
+    this.loggedInUser = this.syssrv.get();
+    this.isAdmin = this.loggedInUser.isAdmin;
     this.vendorsrv.list()
     .subscribe( resp => 
       {

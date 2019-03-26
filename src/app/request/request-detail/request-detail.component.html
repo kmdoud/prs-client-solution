@@ -11,21 +11,22 @@
    <td>Status</td>
    <td>Total</td>
  </thead>
- <tbody>
-    <td>{{request.user.username}}</td>
-    <td>{{request.description}}</td>
-    <td>{{request.justification}}</td>
-    <td>{{request.rejectionReason}}</td>
-    <td>{{request.deliveryMode}}</td>
-    <td>{{request.submittedDate}}</td>
-    <td>{{request.status}}</td>
-    <td>{{request.total | currency}}</td>
+ <tbody class="table-responsive">
+    <tr><td class="font-weight-bold">User</td><td>{{request.user.username}}</td></tr>
+    <tr><td class="font-weight-bold">Description</td><td>{{request.description}}</td></tr>
+    <tr><td class="font-weight-bold">Justification</td><td>{{request.justification}}</td></tr>
+    <tr><td class="font-weight-bold">Rejection Reason</td><td>{{request.rejectionReason}}</td></tr>
+    <tr><td class="font-weight-bold">Delivery Mode</td><td>{{request.deliveryMode}}</td></tr>
+    <tr><td class="font-weight-bold">Submit Date</td><td>{{request.submittedDate}}</td></tr>
+    <tr><td class="font-weight-bold">Status</td><td>{{request.status}}</td></tr>
+    <tr><td class="font-weight-bold">Total</td><td>{{request.total | currency}}</td></tr>
    </tbody>
 </table>
-<div><button (click)="review()">REVIEW</button></div>
-<div><button (click)="setVerifyT()">DELETE</button></div>
+<span *ngIf= "request">
+<div [hidden]="user.id != request.userId"><button (click)="review()">REVIEW</button></div>
+<div [hidden]="user.id != request.userId"><button (click)="setVerifyT()">DELETE</button></div>
 <div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
 <div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 
-
+</span>
 <div><a routerLink= "/request/list">Return to List</a></div>
 

@@ -1,35 +1,35 @@
 <app-menu></app-menu>
 <div><h1 class="text-danger">User-List</h1>
-<div><a routerLink="/user/create">Create</a></div>
+<div *ngIf="isAdmin"><a routerLink="/user/create">Create</a></div>
 <div><input [(ngModel)]="searchCriteria" type="text"></div>
 </div>
 <table class="table table-striped text-center">
   <thead class="font-weight-bold">
     <td><a (click)="sortBy('username')">Username</a></td>
-    <td [hidden]="!canView"><a (click)="sortBy('password')">Password</a></td>
+    <td><a (click)="sortBy('password')">Password</a></td>
     <td><a (click)="sortBy('firstname')">Firstname</a></td>
     <td><a (click)="sortBy('lastname')">Lastname</a></td>
     <td><a (click)="sortBy('email')">Email</a></td>
     <td>Phone</td>
-    <td [hidden]="!canView">IsReviewer</td>
-    <td [hidden]="!canView">IsAdmin</td>
+    <td>IsReviewer</td>
+    <td>IsAdmin</td>
     <td>IsActive</td>
     <td>Actions</td>
   </thead>
   <tbody>
     <tr *ngFor="let user of users | search: searchCriteria | sort:sortCriteria:sortOrder">
       <td>{{user.username}}</td>
-      <td [hidden]="!canView">{{user.password}}</td>
+      <td>{{user.password}}</td>
       <td>{{user.firstname}}</td>
       <td>{{user.lastname}}</td>
       <td>{{user.email}}</td>
       <td>{{user.phone}}</td>
-      <td [hidden]="!canView">{{(user.isReviewer| booldisp)}}</td>
-      <td [hidden]="!canView">{{(user.isAdmin | booldisp)}}</td>
+      <td>{{(user.isReviewer| booldisp)}}</td>
+      <td>{{(user.isAdmin | booldisp)}}</td>
       <td>{{(user.isActive | booldisp)}}</td>
       <td>
         <a routerLink="/user/detail/{{user.id}}">Detail</a> |
-        <a routerLink="/user/edit/{{user.id}}">Edit</a>
+        <span *ngIf="isAdmin"><a routerLink="/user/edit/{{user.id}}">Edit</a></span>
       </td>
 
     </tr>

@@ -43,6 +43,7 @@ export class ProductEditComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
     let id = this.route.snapshot.params.id;
 
     this.vendorsrv.list()

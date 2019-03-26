@@ -3,6 +3,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component
 ({
@@ -14,6 +15,7 @@ export class RequestDetailComponent implements OnInit
 {
 
   request: Request;
+  user: User;
 
   verify: boolean;
 
@@ -71,6 +73,8 @@ export class RequestDetailComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
+    this.user = this.syssrv.get();
     let id = this.route.snapshot.params.id;
 
 

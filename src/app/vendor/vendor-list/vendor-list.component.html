@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div><h1 class="text-danger">Vendor List</h1>
-<div><a routerLink="/vendor/create">Create</a></div>
+<div *ngIf="isAdmin"><a routerLink="/vendor/create">Create</a></div>
 <div><input [(ngModel)]="searchCriteria" type="text"></div>
 </div>
 <table class="table table-striped text-center">
@@ -31,7 +31,7 @@
       <td>{{vendor.isActive | booldisp}}</td>
       <td>
         <a routerLink="/vendor/detail/{{vendor.id}}">Detail</a> |
-        <a routerLink="/vendor/edit/{{vendor.id}}">Edit</a>
+        <span *ngIf="isAdmin"><a routerLink="/vendor/edit/{{vendor.id}}">Edit</a></span>
       </td>
     </tr>
   </tbody>

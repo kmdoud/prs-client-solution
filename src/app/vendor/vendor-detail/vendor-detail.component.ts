@@ -3,6 +3,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 import { VendorService } from '../vendor.service';
 import { Vendor } from '../vendor.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component
 ({
@@ -13,7 +14,8 @@ import { SystemService } from '../../system/system.service';
 export class VendorDetailComponent implements OnInit 
 {
   vendor: Vendor;
-
+  loggedInUser: User;
+  isAdmin: boolean;
   verify: boolean;
 
   setVerifyT()
@@ -52,6 +54,9 @@ export class VendorDetailComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
+    this.loggedInUser = this.syssrv.get();
+    this.isAdmin = this.loggedInUser.isAdmin;
     let id = this.route.snapshot.params.id;
 
 

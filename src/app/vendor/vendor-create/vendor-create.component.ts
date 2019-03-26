@@ -34,7 +34,9 @@ export class VendorCreateComponent implements OnInit
     private syssrv: SystemService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.syssrv.verifyLogin()
   }
 
 }

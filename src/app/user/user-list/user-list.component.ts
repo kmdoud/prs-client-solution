@@ -12,10 +12,12 @@ import { SystemService } from '../../system/system.service';
 export class UserListComponent implements OnInit 
 {
   users: User[];
+  loggedInUser: User;
+  isAdmin: boolean;
+
 
   searchCriteria: string = "";
  
-  canView: boolean = true;
 
   sortCriteria: string = "lastname";
   sortOrder: string = "asc";
@@ -38,6 +40,9 @@ export class UserListComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
+    this.loggedInUser = this.syssrv.get();
+    this.isAdmin = this.loggedInUser.isAdmin;
     this.usersrv.list()
       .subscribe( resp => 
         {

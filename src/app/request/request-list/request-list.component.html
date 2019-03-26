@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div><h1 class="text-danger">Request-List</h1>
-<div><a routerLink="/request/create">Create</a></div>
+<span><div><a routerLink="/request/create">Create</a></div></span>
 <div><input [(ngModel)]="rsearchCriteria" type="text"></div>
 </div>
 <table class="table table-striped text-center">
@@ -27,9 +27,9 @@
       <td>{{request.status}}</td>
       <td>{{request.total | currency}}</td>
       <td>
-        <a routerLink="/request/detail/{{request.id}}">Detail</a> |
-        <a routerLink="/request/edit/{{request.id}}">Edit</a> |
-        <a routerLink="/requestLine/list/{{request.id}}">Lines</a>
+        <a routerLink="/request/detail/{{request.id}}">Detail</a>
+        <span *ngIf="admin || user.id == request.userId">|<a routerLink="/request/edit/{{request.id}}">Edit</a> |</span>
+        <span *ngIf="admin || user.id == request.userId"><a routerLink="/requestLine/list/{{request.id}}">Lines</a></span>
       </td>
 
     </tr>

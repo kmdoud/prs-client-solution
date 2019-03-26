@@ -38,8 +38,8 @@ import { LoginComponent } from './user/login/login.component';
 
 const routes: Routes = 
 [
-  {path: '', redirectTo: '/home', pathMatch: 'full'}, //always first route
-
+  {path: '', redirectTo: '/login', pathMatch: 'full'}, //always first route
+  
   {path: 'login', component: LoginComponent },
 
   {path: 'user/list', component: UserListComponent },

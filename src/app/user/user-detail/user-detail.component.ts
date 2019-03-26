@@ -12,7 +12,8 @@ import { SystemService } from '../../system/system.service';
 export class UserDetailComponent implements OnInit 
 {
   user: User;
-
+  loggedInUser: User;
+  isAdmin: boolean;
   verify: boolean;
 
   setVerifyT()
@@ -51,6 +52,9 @@ export class UserDetailComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin()
+    this.loggedInUser = this.syssrv.get();
+    this.isAdmin = this.loggedInUser.isAdmin;
     let id = this.route.snapshot.params.id;
 
 

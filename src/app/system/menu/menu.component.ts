@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Menu} from './menu.class';
+import { SystemService } from '../system.service';
+import { User } from '../../user/user.class';
 
 @Component
 ({
@@ -9,7 +11,9 @@ import { Menu} from './menu.class';
 })
 export class MenuComponent implements OnInit 
 {
-
+  loggedInUser: User;
+  isAdmin: boolean;
+  isReviewer: boolean;
   menu: Menu[] = 
   [
     new Menu('PRS', '/home', 'Purchase Request System'),
@@ -22,13 +26,17 @@ export class MenuComponent implements OnInit
     new Menu("Login/Logout", "/login", "Login Page")
   ];
 
-  constructor() 
+  constructor(private syssrv: SystemService) 
   {
 
   }
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
+    this.loggedInUser = this.syssrv.get();
+    this.isAdmin = this.loggedInUser.isAdmin;
+    this.isReviewer = this.loggedInUser.isReviewer;
   }
 
 }

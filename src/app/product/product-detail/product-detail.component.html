@@ -2,25 +2,23 @@
 <h1 class="text-danger">Product Detail</h1>
 <table *ngIf="product" class="table table-striped text-center">
  <thead class="font-weight-bold">
-   <td>Vendor</td>
-   <td>Partnumber</td>
-   <td>Name</td>
-   <td>Price</td>
-   <td>Unit</td>
-   <td>Photopath</td>
-   <td>Is Active</td>
- </thead>
- <tbody>
-   <td>{{product.vendor.name}}</td>
-   <td>{{product.partNumber}}</td>
-   <td>{{product.name}}</td>
-   <td>{{product.price}}</td>
-   <td>{{product.unit}}</td>
-   <td>{{product.photoPath}}</td>
-   <td>{{(product.isActive | booldisp)}}</td> 
+ <tbody class="table-responsive">
+   <tr><td class="font-weight-bold">Vendor</td><td>{{product.vendor.name}}</td></tr>
+   <tr><td class="font-weight-bold">Partnumber</td><td>{{product.partNumber}}</td></tr>
+
+   <tr><td class="font-weight-bold">Name</td><td>{{product.name}}</td></tr>
+
+   <tr><td class="font-weight-bold">Price</td><td>{{product.price}}</td></tr>
+
+   <tr><td class="font-weight-bold">Unit</td><td>{{product.unit}}</td></tr>
+
+   <tr><td class="font-weight-bold">Photopath</td><td>{{product.photoPath}}</td></tr>
+
+   <tr><td class="font-weight-bold">Is Active</td><td>{{(product.isActive | booldisp)}}</td></tr> 
+
    </tbody>
 </table>
-<div><button (click)="setVerifyT()">DELETE</button></div>
+<div *ngIf="isAdmin"><button (click)="setVerifyT()">DELETE</button></div>
 <div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
 <div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 
 

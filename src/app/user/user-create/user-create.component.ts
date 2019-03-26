@@ -35,7 +35,9 @@ export class UserCreateComponent implements OnInit
     private syssrv: SystemService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.syssrv.verifyLogin()
   }
 
 }

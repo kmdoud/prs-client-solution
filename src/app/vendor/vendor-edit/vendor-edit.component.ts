@@ -37,6 +37,8 @@ export class VendorEditComponent implements OnInit
 
   ngOnInit() 
   {
+
+    this.syssrv.verifyLogin()
     let id = this.route.snapshot.params.id;
 
     this.usersrv.get(id)

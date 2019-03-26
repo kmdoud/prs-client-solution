@@ -3,6 +3,7 @@ import { ActivatedRoute, Router} from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component
 ({
@@ -14,7 +15,8 @@ export class ProductDetailComponent implements OnInit
 {
 
   product: Product;
-
+  loggedInUser: User;
+  isAdmin: boolean;
   verify: boolean;
 
   setVerifyT()
@@ -53,6 +55,9 @@ export class ProductDetailComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
+    this.loggedInUser = this.syssrv.get();
+    this.isAdmin = this.loggedInUser.isAdmin;
     let id = this.route.snapshot.params.id;
 
 

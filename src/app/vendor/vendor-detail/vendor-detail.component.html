@@ -1,33 +1,50 @@
 <app-menu></app-menu>
 <h1 class="text-danger">Vendor Detail</h1>
 <table *ngIf="vendor" class="table table-striped text-center">
- <thead class="font-weight-bold">
-   <td>Code</td>
-   <td>Name</td>
-   <td>Address</td>
-   <td>City</td>
-   <td>State</td>
-   <td>Zip</td>
-   <td>Phone</td>
-   <td>Email</td>
-   <td>IsPreferred/IsActive</td>
- </thead>
- <tbody>
-   <td>{{vendor.code}}</td>
+ 
+ <tbody class="table-responsive">
+   <tr>
+      <td class="font-weight-bold">Code</td>  
+      <td>{{vendor.code}}</td>
+   </tr>   
+   <tr>
+      <td class="font-weight-bold">Name</td>
    <td>{{vendor.name}}</td>
+   </tr>
+   <tr>
+      <td class="font-weight-bold">Address</td>
    <td>{{vendor.address}}</td>
+   </tr>
+   <tr>
+      <td class="font-weight-bold">City</td>
    <td>{{vendor.city}}</td>
+   </tr>
+   <tr>
+      <td class="font-weight-bold">State</td>
    <td>{{vendor.state}}</td>
+   </tr>
+   <tr>
+      <td class="font-weight-bold">Zip</td>
    <td>{{vendor.zip}}</td>
+   </tr>
+   <tr>
+      <td class="font-weight-bold">Phone</td>
    <td>{{vendor.phone}}</td>
+   </tr>
+   <tr>
+      <td class="font-weight-bold">Email</td>
    <td>{{vendor.email}}</td>
+   </tr>
+   <tr>
+      <td class="font-weight-bold">IsPreferred/IsActive</td>
    <td>{{(vendor.isPreferred | booldisp)}} | {{(vendor.isActive | booldisp)}}</td>
+   </tr>
 
    
 
  </tbody>
 </table>
-<div><button (click)="setVerifyT()">DELETE</button></div>
+<div *ngIf="isAdmin"><button (click)="setVerifyT()">DELETE</button></div>
 <div><button *ngIf= "verify"(click)="delete()">VERIFY DELETE</button></div>
 <div><button *ngIf= "verify"(click)="setVerifyF()">CANCEL</button></div> 
 

@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <div><h1 class="text-danger">Product-List</h1>
-<div><a routerLink="/product/create">Create</a></div>
+<div *ngIf="isAdmin"><a routerLink="/product/create">Create</a></div>
 <div><input [(ngModel)]="psearchCriteria" type="text"></div>
 </div>
 <table class="table table-striped text-center">
@@ -25,7 +25,7 @@
       <td>{{(product.isActive | booldisp )}}</td>
       <td>
         <a routerLink="/product/detail/{{product.id}}">Detail</a> |
-        <a routerLink="/product/edit/{{product.id}}">Edit</a>
+        <span *ngIf="isAdmin"><a routerLink="/product/edit/{{product.id}}">Edit</a></span>
       </td>
 
     </tr>

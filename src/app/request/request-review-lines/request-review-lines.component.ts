@@ -99,6 +99,7 @@ export class RequestReviewLinesComponent implements OnInit {
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
     let id = this.route.snapshot.params.id;
 
     this.requestsrv.get(id)

@@ -43,6 +43,7 @@ export class ProductCreateComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
     this.vendorsrv.list()
       .subscribe(resp => 
         {

@@ -17,9 +17,11 @@ export class RequestCreateComponent implements OnInit
 
   request: Request = new Request();
   users: User[];
+  user: User;
 
   save(): void
   {
+    this.request.userId = this.user.id;
     this.requestsrv.create(this.request)
       .subscribe
       (
@@ -42,7 +44,11 @@ export class RequestCreateComponent implements OnInit
   ) { }
 
   ngOnInit() 
+
   {
+    this.syssrv.verifyLogin();
+    this.user = this.syssrv.get();
+
     this.usersrv.list()
       .subscribe(resp => 
         {

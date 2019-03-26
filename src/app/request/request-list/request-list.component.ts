@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { Request } from '../request.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component
 ({
@@ -13,12 +14,17 @@ export class RequestListComponent implements OnInit
 {
 
   requests: Request[];
+  request: Request;
   
-  canView: boolean = true;
+  loggedInUser: User;
+  user: User;
+  admin: boolean;
+  canView: boolean;
 
   rsearchCriteria: string = "";
   sortCriteria: string = "submittedDate";
   sortOrder: string = "asc";
+
 
   sortBy(column: string): void
   {
@@ -40,6 +46,13 @@ export class RequestListComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
+    this.user = this.syssrv.get();
+    console.log("Verify logged in user: ", this.user);
+
+    this.admin = this.syssrv.isAdmin();
+    this.canView = this.admin;
+
     this.requestsrv.list()
       .subscribe( resp => 
         {

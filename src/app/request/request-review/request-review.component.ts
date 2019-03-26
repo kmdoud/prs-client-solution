@@ -39,6 +39,7 @@ export class RequestReviewComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
     this.requestsrv.getReview()
       .subscribe( resp => 
         {

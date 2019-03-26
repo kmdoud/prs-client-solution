@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product.class';
 import { SystemService } from '../../system/system.service';
+import { User } from '../../user/user.class';
 
 @Component
 ({
@@ -12,8 +13,9 @@ import { SystemService } from '../../system/system.service';
 export class ProductListComponent implements OnInit 
 {
   products: Product[];
+  loggedInUser: User;
+  isAdmin: boolean;
 
-  canView: boolean = true;
   psearchCriteria: string = "";
   sortCriteria: string = "name";
   sortOrder: string = "asc";
@@ -38,6 +40,9 @@ export class ProductListComponent implements OnInit
 
   ngOnInit() 
   {
+    this.syssrv.verifyLogin();
+    this.loggedInUser = this.syssrv.get();
+    this.isAdmin = this.loggedInUser.isAdmin;
     this.productsrv.list()
       .subscribe( resp => 
         {
