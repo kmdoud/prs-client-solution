@@ -1,3 +1,5 @@
+import { isoStringToDate } from "@angular/common/src/i18n/format_date";
+
 export class Request 
 {
     id: number;
@@ -18,7 +20,7 @@ export class Request
         this.justification = '';
         this.rejectionReason = '';
         this.deliveryMode = '';
-        this.submittedDate = '';
+        this.submittedDate = (new Date()).toISOString();
         this.status = "NEW";
         this.total = 0;
     }
